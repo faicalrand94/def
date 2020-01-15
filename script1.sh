@@ -27,10 +27,7 @@ service php7.3-fpm start
 ####
 ##mysql -u root -p
 
-mysql -u root -p
-root
-CREATE USER 'reda'@'localhost' IDENTIFIED BY 'reda';
-exit
+mysql -u root -e "CREATE USER 'reda'@'localhost' IDENTIFIED BY 'reda'";
 service mysql restart
 service nginx restart
 service php7.3-fpm restart
