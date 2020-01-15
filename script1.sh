@@ -1,5 +1,5 @@
 apt-get update
-apt-get install git wget nginx vim unzip php7.3-fpm php-mysql lsb-release gnupg -y
+apt-get install git wget nginx vim unzip php7.3-fpm php-mysql lsb-release gnupg php7.3-mbstring -y
 cd /var/www/html/
 wget https://files.phpmyadmin.net/phpMyAdmin/5.0.1/phpMyAdmin-5.0.1-all-languages.zip
 unzip phpMyAdmin-5.0.1-all-languages.zip
@@ -28,6 +28,13 @@ service php7.3-fpm start
 ##mysql -u root -p
 
 mysql -u root -e "CREATE USER 'reda'@'localhost' IDENTIFIED BY 'reda'";
+mkdir /var/www/html/phpmyadmin/tmp
+chmod 777 /var/www/html/phpmyadmin/tmp
+
+rm -rf  var/www/html/phpmyadmin/config.sample.inc.php
+
+cp ./config.inc.php /var/www/html/phpmyadmin/
+
 service mysql restart
 service nginx restart
 service php7.3-fpm restart
