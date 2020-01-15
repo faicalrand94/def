@@ -31,9 +31,11 @@ mysql -u root -e "CREATE USER 'reda'@'localhost' IDENTIFIED BY 'reda'";
 mkdir /var/www/html/phpmyadmin/tmp
 chmod 777 /var/www/html/phpmyadmin/tmp
 
-rm -rf  var/www/html/phpmyadmin/config.sample.inc.php
+mv /var/www/html/phpmyadmin/config.sample.inc.php /var/www/html/phpmyadmin/reda.php
 
-cp ./config.inc.php /var/www/html/phpmyadmin/
+rm -rf /var/www/html/phpmyadmin/reda.php
+
+cp /red/config.inc.php /var/www/html/phpmyadmin/
 
 service mysql restart
 service nginx restart
